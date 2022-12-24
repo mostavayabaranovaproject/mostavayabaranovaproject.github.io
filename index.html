@@ -67,10 +67,82 @@
 
 
 
+    <div class="container-fluid" id="m-nav">
+      <nav class="navbar fixed-bottom navbar-dark bg-dark dropup" id="mob-nav">
+        <div class="container-fluid" id="logobtnwrap">
+          <a class="logotipnav" href="/"><img src="img/svg/drupalcoder.svg" alt="Главная" width="146" height="20"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropup" aria-controls="navbarNavDarkDropup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropup">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" id="items">
+              <a class="nav-link" id="items" href="#">Поддержка Drupal</a>
+            </li>
+            <li class="nav-item" id="items">
+              
+              <a class="nav-link dropdown-toggle" id="items" href="#" data-toggle="dropdown" aria-expanded="true" >
+                Администрирование
+              </a>
+              <div class="dropwrapper">
+              <ul class="dropdown-menu1">
+                
+                <li><a class="nav-link" id="items" href="#">Action</a></li>
+                <li><a class="nav-link" id="items" href="#">Another action</a></li>
+                <li><a class="nav-link" id="items" href="#">Something else here</a></li>
+                <li><a class="nav-link" id="items" href="#">Something else here</a></li>
+                <li><a class="nav-link" id="item-l" href="#">Something else here</a></li>
+              
+              </ul>
+            </div>
+            </li>
+          </li>
+          <li class="nav-item" id="items">
+              
+            <a class="nav-link dropdown-toggle" id="items" href="#" data-toggle="dropdown" aria-expanded="true" >
+              Продвижение
+            </a>
+            <div class="dropwrapper">
+            <ul class="dropdown-menu1">
+              
+              <li><a class="nav-link" id="item-l" href="#">Реклама</a></li>
+            
+            </ul>
+          </div>
+          </li>
+              <li class="nav-item" id="items">
+              <a class="nav-link dropdown-toggle" id="items" href="#" data-toggle="dropdown" aria-expanded="true" >
+                О нас
+              </a>
+              <div class="dropwrapper">
+              <ul class="12dropdown-menu">
+                <li><a class="nav-link" id="items" href="#">Action</a></li>
+                <li><a class="nav-link" id="items" href="#">Another action</a></li>
+                <li><a class="nav-link" id="items" href="#">Something else here</a></li>
+                <li><a class="nav-link" id="items" href="#">Something else here</a></li>
+                <li><a class="nav-link" id="item-l"  href="#">Something else here</a></li>
+              </ul>
+            </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="items" href="#">Проекты</a>
+            </li>
+            <li class="nav-item" id="nav-li-last">
+              <a class="nav-link" id="item-last" href="#">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+
+
     <div class="mx-auto" id="container">
-      <div class="col-md-6" id="leftside">
+      <div class="col-md-5" id="leftside">
       <div id="h1-text">
-        <h1>Поддержка сайтов на Drupal</h1>
+        <h1>Поддержка <br> сайтов на Drupal</h1>
     </div>
     <div id="h2-text">
       <h2>Сопровождение и поддержка сайтов
@@ -80,8 +152,8 @@
       <a href="">Тарифы</a>
     </div>
   </div>
-    <div class="col-md-6" id="statistic">
-      
+    <div class="col-md-7" id="statistic">
+      <div id="threeblocks1">
       <div class="col-md-4 h-blocks" id="block-1">
         <div class="brdr"></div>
         <div class="blocks-wrapper">
@@ -113,7 +185,8 @@
   <div class="col-md-12" id="botside">лет опыта в сфере Drupal</div>  
   </div>
 </div>
-
+</div>
+<div id="threeblocks2">
 <div class="col-md-4 h-blocks" id="block-4">
   <div class="brdr"></div>
   <div class="blocks-wrapper">
@@ -143,8 +216,8 @@
 на поддержке</div>  
 </div>
 </div>
+</div>
 
-    </div>
   </div>
   </div>
 </header>
@@ -171,7 +244,6 @@
         Десятки компаний доверяют нам самое ценное, что у них есть в интернете – свои сайты. Мы делаем всё,
         чтобы наше сотрудничество было долгим.
     </p>
-
 
 
 
@@ -246,6 +318,61 @@
         подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
         вами свяжется!</p>
     </div>
+    <div class="phone">
+      <img src="img/svg/phone.svg" alt="">
+      <a id="phone" href="tel:8800222-26-73">8 800 222-26-73</a>
+    </div>
+    <div class="mail">
+      <img src="img/svg/mail.svg" alt="">
+      <a id="email" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
+    </div>
+  </div>
+  <div class="form">
+    <form action="" method="POST">
+        <div>
+            <input class="form-elem" id="name" type="text" name="name" required
+                placeholder="Ваше имя">
+        </div>
+        <div>
+            <input class="form-elem" id="form-phone" type="tel" name="phone" required
+                placeholder="Телефон">
+        </div>
+        <div>
+            <input class="form-elem" id="form-email" type="email" name="email" required
+                placeholder="E-mail">
+        </div>
+        <div>
+            <input id="comment" class="form-elem" type="text" placeholder="Ваш комментарий" />
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="Check" required>
+            <label class="form-check-label" for="Check">Отправляя заявку я даю согласие на
+                <a title = "Отныне и навеки, ваша душа будет принадлежать создателю данной страницы">
+                  обработку своих персональных данных</a>.<span>*</span></label>
+        </div>
+        <div>
+
+
+
+          <input class="form-btn" type="button" value="ОСТАВИТЬ ЗАЯВКУ!">
+        </div>
+    </form>
+</div>
+</div>
+<hr>
+<div class="footer-text">
+<p>Проект ООО «Инитлаб», Краснодар, Россия.</p>
+<p>Drupal является зарегистрированной торговой маркой Dries Buytaert.</p>
+</div>
+<div class="D">
+  <img src="/img/svg/D.svg" alt="">
+</div>
+</footer>
+
+
+
+
+    
 
   </header>
 </body>
