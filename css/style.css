@@ -215,8 +215,6 @@ color: #FFFFFF;
   display: flex;
   align-items: center;
   
-  /* White */
-  
   color: #FFFFFF;
 }
 
@@ -291,8 +289,8 @@ header #container{
 
  }
  #mob-nav ul {
-  margin-left: 0; /* Отступ слева в браузере IE и Opera */
-  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+ 
+  padding-left: 0;
  }
  #mob-nav .nav-item a{
   font-family: Montserrat;
@@ -329,7 +327,7 @@ padding-left: 40px;
  .bg-dark{
   background-color: black!important;
  }
- /*start cringe*/
+
  header{
   height: 99vh;
   
@@ -365,7 +363,9 @@ header #container {
 .h-blocks #botside{
   max-width: 142px;
 }
-/* block2 */
+
+
+
 #c-h2-text h2{
   font-family: 'Montserrat';
 font-style: normal;
@@ -385,11 +385,6 @@ font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 22px;
-/* or 138% */
-
-
-/* main-black */
-
 color: #050C33;
 
 opacity: 0.7;
@@ -425,7 +420,6 @@ line-height: 22px;
   }
 
 
-/* block3 */
 #s-h2-text h2{
   font-family: 'Montserrat';
   font-style: normal;
@@ -454,10 +448,7 @@ margin-bottom: 12px;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  /* or 138% */
-  
-  
-  /* main-black */
+
   
   color: #050C33;
   
@@ -492,10 +483,9 @@ margin-bottom: 20px;
 }
 .c-cicon{
   position: absolute;
-  right: 0;
+  right: 0; 
   bottom: 0;
 }
-/* responsive shapka, navbar to bottom start */
 
 @media (min-width: 375px) {
   header #container {
@@ -698,9 +688,7 @@ line-height: 60px;
   opacity: 0.7;
 }
 
-/*team styles end*/
 
-/*reviews styles start */
 
 .reviews {
   padding:10px;
@@ -848,9 +836,7 @@ line-height: 60px;
   color: #050c33;
 }
 
-/*reviews styles end */
 
-/* partners styles start */
  
 .partners {
   overflow: hidden;
@@ -906,9 +892,64 @@ line-height: 60px;
   margin: 0 auto;  
 }
 
-/* partners styles end */
 
-/*footer styles start*/
+
+.faq {
+  width: 80%;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 160px;
+}
+
+.faq-title {
+  font-size: 42px;
+  line-height: 51px;
+  text-align: center;
+  color: #050C33;
+  font-weight: 700;
+  margin-bottom:30px;
+}
+
+.section {
+  width:100%;
+}
+
+.faq-container{
+  width:100%;
+}
+.faq-text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #050C33;
+  opacity: 0.7;
+}
+
+.faq-container summary {
+  list-style: none;;
+  color: #050C33;
+  font-weight: bold;
+  font-size: 16px;
+  display:flex;
+}
+
+.faq-container details[open] {
+  padding:5px;
+  border: 2px solid #f14d34;
+  border-radius: 5px;
+}
+
+.faq-container details[open] summary{
+  color:#f14d34;
+}
+.faq-container details[open] .zol{
+  color: #050C33;
+  font-size: 16px;
+}
+
+
+
 .footer{
   background-color: #040613;
   height:720px;
@@ -1049,7 +1090,7 @@ margin-left: 20px;
     font-size: 12px;
 }
 
-/* D-letters styles start*/
+
 
 .d-wrap{
   position:relative;
@@ -1072,7 +1113,7 @@ margin-left: 20px;
   height:105px;
 }
 
-/*D-letters styles end*/
+
 
 hr {
   opacity: 0.3;
