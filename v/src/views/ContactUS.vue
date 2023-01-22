@@ -37,15 +37,74 @@
   </div>  
 </template>
   
-  <script>
-export default{
-    name: 'ContactUS',
-};
-  </script>
-  <style>
-  #test{
-    height: 100px;
-    width: 200px;
-    margin-top: 100px;
-  }
+ <script>
+export default {
+  data() {
+    return {
+      showForm: false,
+      isLoading: false,
+      success: false,
+      error: null,
+    }
+  },
+  methods: {
+    async submitForm() {
+        try {
+            this.isLoading = true;
+            let formData = {
+                name: this.name,
+                number: this.number,
+                email: this.email,
+                comment: this.comment
+            }
+            let response = await fetch('https://formcarry.com/s/CZhNxnrEQ', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            if (response.ok) {
+                this.success = true;
+                this.isLoading = false;
+            } else {
+                throw new Error('Failed to submit form');
+            }
+        } catch (err) {
+            this.error = 'Failed to submit form. Please try again.';
+            this.isLoading = false;
+        }
+    },
+},
+
+}
+</script>
+
+
+
+<style>
+
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+.fixed-bottom-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.form-popup {
+  z-index: 10000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #040613;
+  padding: 20px;
+}
 </style>
