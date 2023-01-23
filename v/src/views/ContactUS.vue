@@ -2,7 +2,7 @@
    <div>
     <button class="fixed-bottom-right" @click="showForm = true" :disabled="isLoading" v-if="!success">СВЯЗАТЬСЯ</button>
      <div class="dialog" v-if="showForm" @click.stop="hideForm">
-      <div v-if="showForm" class="form-popup col col-10 col-md-6">
+      <div v-if="showForm" @click.stop class="form-popup col col-10 col-md-6">
         <div class="form-dialog" id="forma">
           <form @submit.prevent="submitForm">
             <div class="form-group">
@@ -189,7 +189,7 @@ import { mapState } from 'vuex'
   height: 60px;
   border-radius: 25px;
   font-size: 15px;
-  
+  z-index: 20000;
 }
 
 .form-control {
