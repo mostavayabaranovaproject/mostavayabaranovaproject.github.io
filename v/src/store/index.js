@@ -2,13 +2,19 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-  },
-  getters: {
+    isLoading: false,
+    success: false,
+    error: ''
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    setLoading(state, isLoading) {
+      state.isLoading = isLoading
+    },
+    setSuccess(state, success) {
+      state.success = success
+    },
+    setError(state, error) {
+      state.error = error
+    }
   }
 })
