@@ -48,65 +48,187 @@
   </div>  
 </template>
   
- <script>
-export default {
-  data() {
-    return {
-      showForm: false,
-      isLoading: false,
-      success: false,
-      error: null,
+<script>
+import { mapState } from 'vuex'
+ export default {
+   computed: {
+   ...mapState({
+     isLoading: state => state.isLoading,
+     success: state => state.success,
+     error: state => state.error
+   }),
+ },
+   data() {
+     return {
+       showForm: false,
+       message:'',
+       name: '',
+       number: '',
+       email: '',
+       comment: ''
+     }
+   },
+ methods: {
+   async submitForm() {
+     this.$store.commit('setLoading', true);
+     try {
+       const response = await fetch('https://formcarry.com/s/CZhNxnrEQ', {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+         body: JSON.stringify({
+           name: this.name,
+           number: this.number,
+           email: this.email,
+           comment: this.comment
+         })
+       });
+       if (response.ok) {
+         this.$store.commit('setSuccess', true);
+         this.message="Форма отправлена!";
+         this.name='';
+         this.number='';
+         this.email='';
+         this.comment='';
+         localStorage.removeItem(this.newName);
+         localStorage.removeItem(this.newNumber);
+         localStorage.removeItem(this.newEmail);
+         localStorage.removeItem(this.newComment);
+       } else {
+         throw new Error('Failed to submit form. Please try again.');
+       }
+     } catch (error) {
+       this.message="Повторите попытку"
+     } finally {
+       this.$store.commit('setLoading', false);
+     }
+   },
+   hideForm() {
+       this.showForm = false;
+       history.pushState(true, null, "#");
+     },
+     sForm() {
+       this.showForm = true;
+     }
+ },
+ mounted() {
+  window.addEventListener("popstate", () => {
+    this.hideForm();
+  });
+  if (location.hash === "#contactus") {
+    this.sForm();
+  }
+  
+    document.addEventListener('DOMContentLoaded', function () {
+      let c = document.getElementById("btn");
+  c.addEventListener("click", () => {
+    history.pushState(true, null, "#contactus");
+  
+  });
+  if (location.hash === "#contactus") {
+    this.sForm();
+  }
+  
+    });
+    
+    if (localStorage.name) {
+      this.name = localStorage.name;
+    }
+    if (localStorage.email) {
+      this.email = localStorage.email;
+    }
+    if (localStorage.number) {
+      this.number = localStorage.number;
+    }
+    if (localStorage.comment) {
+      this.comment = localStorage.comment;
     }
   },
-  methods: {
-    async submitForm() {
-        try {
-            this.isLoading = true;
-            let formData = {
-                name: this.name,
-                number: this.number,
-                email: this.email,
-                comment: this.comment
-            }
-            let response = await fetch('https://formcarry.com/s/CZhNxnrEQ', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-            if (response.ok) {
-                this.success = true;
-                this.isLoading = false;
-            } else {
-                throw new Error('Failed to submit form');
-            }
-        } catch (err) {
-            this.error = 'Failed to submit form. Please try again.';
-            this.isLoading = false;
-        }
+  watch: {
+    name(newName) {
+      localStorage.name = newName;
     },
-},
-
+    email(newEmail) {
+      localStorage.email= newEmail;
+    },
+    number(newNumber) {
+      localStorage.number = newNumber;
+    },
+    comment(newComment) {
+      localStorage.comment = newComment;
+    }
+  }
 }
 </script>
+ 
+
 
 
 
 <style>
-
 .error-message {
-  color: red;
+  font-size: 20px;
+  color: rgb(148, 29, 29);
 }
 
 .success-message {
-  color: green;
+  font-size: 20px;
+  color: rgb(36, 105, 36);
 }
+
+.messageD {
+  color: #F14D34;
+  padding-top: 15px;
+  text-align: center;
+}
+
 .fixed-bottom-right {
   position: fixed;
-  bottom: 20px;
+  bottom: 70px;
   right: 20px;
+  width: 120px;
+  height: 60px;
+  border-radius: 25px;
+  font-size: 15px;
+  
+}
+
+.form-control {
+  color: white;
+  font-size: 14px;
+  width: 100%;
+  min-width: 150px;
+  height: 68px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-left: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  margin-bottom: 8px;
+  transition: 0.4s;
+  height: 55px;
+}
+
+.form-dialog {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+}
+
+/*.dialog {
+  position: fixed;
+  z-index: 20000;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(58, 89, 136, 0.596);
+  display: flex;
+}*/
+@media (min-width:768px) {
+  .fixed-bottom-right {
+    bottom: 20px;
+  }
 }
 
 .form-popup {
@@ -117,5 +239,9 @@ export default {
   transform: translate(-50%, -50%);
   background-color: #040613;
   padding: 20px;
+  border: 2px solid;
+  padding: 1vw;
+  border-radius: 25px;
+  padding-bottom: 20px;
 }
 </style>
