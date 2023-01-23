@@ -1,7 +1,7 @@
 <template>
    <div>
     <button class="fixed-bottom-right" @click="showForm = true" :disabled="isLoading" v-if="!success">СВЯЗАТЬСЯ</button>
-    <div class="dialog">
+     <div class="dialog" v-if="showForm" @click.stop="hideForm">
       <div v-if="showForm" class="form-popup col col-10 col-md-6">
         <div class="form-dialog" id="forma">
           <form @submit.prevent="submitForm">
@@ -215,16 +215,16 @@ import { mapState } from 'vuex'
   padding-top: 15px;
 }
 
-/*.dialog {
+.dialog {
   position: fixed;
   z-index: 20000;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(58, 89, 136, 0.596);
+  background: rgba(36, 50, 71, 0.712);
   display: flex;
-}*/
+}
 @media (min-width:768px) {
   .fixed-bottom-right {
     bottom: 20px;
