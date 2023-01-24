@@ -8,7 +8,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/contactus',
+    path: '/#contactus',
     name: 'contactus',
 
     component: () => import(/* webpackChunkName: "contactus" */ '../views/MasterView.vue'),
